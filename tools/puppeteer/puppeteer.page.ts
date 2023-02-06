@@ -20,7 +20,22 @@ export default class PuppeteerPage implements Page {
         const element: ElementHandle = await this.page.$(`#${inputId}`);
         console.log(`Click element - ${inputId}`);
         await element?.click();
-        expect(element)
+        return Promise.resolve(undefined);
+    }
+
+    check(inputId: string): Promise<void> {
+        return Promise.resolve(undefined);
+    }
+
+    toggle(inputId: string): Promise<void> {
+        return Promise.resolve(undefined);
+    }
+
+    async type(inputId: string, inputValue: string): Promise<void> {
+        const element: ElementHandle = await this.page.$(`#${inputId}`);
+        console.log(`Type element - ${inputId}`)
+        await element.type(inputValue, { delay: 0 });
+        return Promise.resolve(undefined);
     }
 
 }

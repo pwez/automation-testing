@@ -1,6 +1,6 @@
-import {Input, BehaviourType} from "../../framework";
+import {Input, BehaviourType} from "../../../framework";
 
-const DemoQaTestInputs: Input[] = [
+const DemoqaButtonsTestInputs: Input[] = [
     {
         inputId: 'item-4',
         behaviourType: BehaviourType.BUTTON,
@@ -13,4 +13,4 @@ const DemoQaTestInputs: Input[] = [
     }
 ];
 
-export default DemoQaTestInputs;
+export default DemoqaButtonsTestInputs;

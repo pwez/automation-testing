@@ -24,16 +24,19 @@ export class ButtonBehaviour implements Behaviour {
 
 export class RadioBehaviour implements Behaviour {
     async invoke(page: Page, input: Input) {
+        await page?.toggle(input.inputId);
     }
 }
 
 export class CheckboxBehaviour implements Behaviour {
     async invoke(page: Page, input: Input) {
+        await page?.check(input.inputId);
     }
 }
 
 export class TextBehaviour implements Behaviour {
     async invoke(page: Page, input: Input) {
+        await page?.type(input.inputId, input.inputValue);
     }
 }
 

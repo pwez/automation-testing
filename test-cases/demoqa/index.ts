@@ -1,8 +1,10 @@
 import {Test} from "../../framework";
-import DemoQaTests from "./demo-qa-tests";
+import DemoqaButtonsTests from "./buttons/demoqa-buttons.tests";
+import DemoqaTextTests from "./text-boxes/demoqa-text.tests";
 
-const GoogleTests: Test[] = [
-    ...DemoQaTests
+const DemoqaTests: Test[] = [
+    ...DemoqaButtonsTests,
+    ...DemoqaTextTests
 ]
 
-export default GoogleTests;
+export default DemoqaTests;

@@ -3,7 +3,7 @@ import puppeteer from 'puppeteer';
 (async () => {
     const browser = await puppeteer.launch({
         headless: false,
-        slowMo: 100
+        slowMo: 30
     });
     const page = await browser.newPage();
 

@@ -1,10 +1,10 @@
-import { Test } from "../framework/test";
+import { Test } from "../framework";
+import DemoqaTests from './demoqa';
 import DiscoverTests from "./discover";
-import GoogleTests from './demoqa';
 
 const tests: Test[] = [
-    ...DiscoverTests,
-    ...GoogleTests
+    ...DemoqaTests,
+    ...DiscoverTests
 ];
 
 export default tests;

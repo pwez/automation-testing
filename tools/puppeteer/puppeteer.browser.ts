@@ -11,7 +11,7 @@ export default class PuppeteerBrowser implements Browser {
     }
 
     async launch() {
-        this.browser = await puppeteer.launch({ headless: false, slowMo: 500 });
+        this.browser = await puppeteer.launch({ headless: false, slowMo: 100 });
     }
 
     pages: Map<number, Page>;
