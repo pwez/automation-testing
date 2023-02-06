@@ -19,7 +19,7 @@ let formatTestStepTypes = (testStepTypes: TestStepType[]) => {
     testStepTypes.push(...posttestStepTypes);
     const reformattedTestStepTypes = testStepTypes.map(testStepType => `TestStepType.${TestStepType[testStepType]}`);
     return reformattedTestStepTypes.map(testStepType => {
-        return `\t\t${testStepType}`;
+        return `\t${testStepType}`;
     });
 }
 
@@ -44,10 +44,11 @@ tests.forEach((test: Test) => {
             `${formatInputs(test.inputs)}`,
         `];`,
         ``,
+        `const testStepTypes = [`,
+            `${formatTestStepTypes(test.testStepTypes).join(',\n')}`,
+        `];`,
+        ``,
         `test('${test.description}', async () => {`,
-            `\tconst testStepTypes = [`,
-                `${formatTestStepTypes(test.testStepTypes).join(',\n')}`,
-            `\t];`,
             `\tconst testContext: TestContext = new PuppeteerTestContext(testCaseDataInput);`,
             `\tconst testSteps: TestStep[] = testStepTypes.map((testStepType: TestStepType) => TestSteps.get(testStepType));`,
             `\tfor (const testStep of testSteps) {`,
