@@ -6,7 +6,7 @@ class InteractWithDemoQa extends AutomationTestStep {
         await super.execute(testContext);
         const page: Page = testContext.browser.pages.get(0);
         for (let input of testContext.inputs) {
-            let behaviour: Behaviour = testContext.behaviourProvider.behaviours.get(input.inputType);
+            let behaviour: Behaviour = testContext.behaviourProvider.behaviours.get(input.behaviourType);
             await behaviour.invoke(page, input);
         }
     }

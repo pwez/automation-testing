@@ -1,19 +1,19 @@
 import {Page} from "./page";
 import {Input} from "./test";
 
-export enum InputType {
-    RADIO,
-    BUTTON,
-    TEXT,
-    CHECKBOX
-}
-
-export interface BehaviourProvider {
-    behaviours: Map<InputType, Behaviour>;
-}
-
 export interface Behaviour {
     invoke(page: Page, input: Input);
+}
+
+export class BehaviourProvider {
+    behaviours: Map<BehaviourType, Behaviour>;
+    constructor() {
+        this.behaviours = new Map<BehaviourType, Behaviour>();
+        this.behaviours.set(BehaviourType.BUTTON, new ButtonBehaviour());
+        this.behaviours.set(BehaviourType.TEXT, new TextBehaviour());
+        this.behaviours.set(BehaviourType.CHECKBOX, new CheckboxBehaviour());
+        this.behaviours.set(BehaviourType.RADIO, new RadioBehaviour());
+    }
 }
 
 export class ButtonBehaviour implements Behaviour {
@@ -22,18 +22,24 @@ export class ButtonBehaviour implements Behaviour {
     }
 }
 
-export abstract class RadioBehaviour implements Behaviour {
+export class RadioBehaviour implements Behaviour {
     async invoke(page: Page, input: Input) {
     }
 }
 
-export abstract class CheckboxBehaviour implements Behaviour {
+export class CheckboxBehaviour implements Behaviour {
     async invoke(page: Page, input: Input) {
     }
 }
 
-export abstract class TextBehaviour implements Behaviour {
+export class TextBehaviour implements Behaviour {
     async invoke(page: Page, input: Input) {
     }
 }
 
+export enum BehaviourType {
+    RADIO,
+    BUTTON,
+    TEXT,
+    CHECKBOX
+}

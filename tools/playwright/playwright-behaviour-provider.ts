@@ -1,6 +1,6 @@
-import {Behaviour, BehaviourProvider, InputType} from "../../framework";
+import {Behaviour, BehaviourProvider, BehaviourType} from "../../framework";
 
 export default class PlaywrightBehaviourProvider implements BehaviourProvider {
-    behaviours: Map<InputType, Behaviour>;
+    behaviours: Map<BehaviourType, Behaviour>;
 
 }

@@ -1,15 +1,15 @@
-import {Input, InputType} from "../../framework";
+import {Input, BehaviourType} from "../../framework";
 
 const DemoQaTestInputs: Input[] = [
     {
         inputId: 'item-4',
-        inputType: InputType.BUTTON,
+        behaviourType: BehaviourType.BUTTON,
     }, {
         inputId: 'doubleClickBtn',
-        inputType: InputType.BUTTON,
+        behaviourType: BehaviourType.BUTTON,
     }, {
         inputId: 'rightClickBtn',
-        inputType: InputType.BUTTON,
+        behaviourType: BehaviourType.BUTTON,
     }
 ];
 

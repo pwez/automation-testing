@@ -1,6 +1,6 @@
 import {writeFile} from "fs";
 import tests from "../../test-cases";
-import {Input, InputType, Test, TestStepType} from "../../framework";
+import {Input, BehaviourType, Test, TestStepType} from "../../framework";
 
 let generatedTestDirectory = `${__dirname}/../../tests`;
 let pretestStepTypes: TestStepType[] = [TestStepType.OPEN_BROWSER];
@@ -27,7 +27,7 @@ let formatInputs = (inputs: Input[]) => {
     return inputs.map((input: Input) => {
         return [
             `\t{\n\t\tinputId: '${input.inputId}'`,
-                `\n\t\tinputType: InputType.${InputType[input.inputType]}`,
+                `\n\t\tbehaviourType: BehaviourType.${BehaviourType[input.behaviourType]}`,
                 `\n\t\tinputValue: '${input.inputValue ?? ''}'`,
                 `\n\t\texpectedValue: '${input.expectedValue ?? ''}'\n\t}, `
         ]
@@ -37,7 +37,7 @@ let formatInputs = (inputs: Input[]) => {
 tests.forEach((test: Test) => {
     const file = `${generatedTestDirectory}/${test.id}.test.ts`
     const content = [
-        `import { Input, InputType, TestContext, TestStep, TestSteps, TestStepType } from "../framework";`,
+        `import { Input, BehaviourType, TestContext, TestStep, TestSteps, TestStepType } from "../framework";`,
         `import PuppeteerTestContext from "../tools/puppeteer/puppeteer.test-context";`,
         ``,
         `const testCaseDataInput: Input[] = [`,

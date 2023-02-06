@@ -1,4 +1,4 @@
-import {BehaviourProvider, InputType} from "./behaviour";
+import {BehaviourProvider, BehaviourType} from "./behaviour";
 import {Browser} from "./browser";
 import {TestStepType} from "./test-step";
 
@@ -17,7 +17,7 @@ export interface TestContext {
  */
 export interface Input {
     inputId: string;
-    inputType: InputType;
+    behaviourType: BehaviourType;
     inputValue?: string;
     expectedValue?: string;
 }

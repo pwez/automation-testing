@@ -1,5 +1,4 @@
 import {BehaviourProvider, Browser, Input, TestContext} from "../../framework";
-import PuppeteerBehaviourProvider from "./puppeteer-behaviour-provider";
 import PuppeteerBrowser from "./puppeteer.browser";
 
 export default class PuppeteerTestContext implements TestContext {
@@ -8,7 +7,7 @@ export default class PuppeteerTestContext implements TestContext {
     inputs: Input[];
 
     constructor(inputs: Input[]) {
-        this.behaviourProvider = new PuppeteerBehaviourProvider();
+        this.behaviourProvider = new BehaviourProvider();
         this.browser = new PuppeteerBrowser();
         this.inputs = inputs;
     }
