@@ -1,9 +1,13 @@
 export interface Page {
     /**
-     *
+     * Used to go to a URL
      * @param url
      */
     goto(url?: string): void;
+
+    /**
+     * Take a screenshot of the current view
+     */
     takeScreenshot(): void;
 
     /**
